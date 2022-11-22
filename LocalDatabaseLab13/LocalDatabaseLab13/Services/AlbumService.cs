@@ -1,5 +1,6 @@
 ﻿using LocalDatabaseLab13.DataContext;
 using LocalDatabaseLab13.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace LocalDatabaseLab13.Services
 
         public List<Album> Get()
         {
-            return _context.Albumes.ToList();
+            return _context.Albumes.Include(x=> x.Artista).ToList();
         }
 
         public Album GetByTitulo(string Titulo)

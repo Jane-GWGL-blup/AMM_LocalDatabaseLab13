@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LocalDatabaseLab13.DataContext;
+using LocalDatabaseLab13.Interfaces;
+using LocalDatabaseLab13.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +12,14 @@ namespace LocalDatabaseLab13
         public App()
         {
             InitializeComponent();
+            GetContext().Database.EnsureCreated();
+            MainPage = new NavigationPage(new AlbumesPage());
+        }
+        public static AppDbContext GetContext()
+        {
+            string DbPath = DependencyService.Get<IConfigDataBase>().GetFullPath("efCore.db");
 
-            MainPage = new MainPage();
+            return new AppDbContext(DbPath);
         }
 
         protected override void OnStart()

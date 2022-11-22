@@ -9,3 +9,4 @@ namespace LocalDatabaseLab13.Interfaces
         string GetFullPath(string databaseFileName);
     }
 }
+
