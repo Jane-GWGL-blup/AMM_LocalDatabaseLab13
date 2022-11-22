@@ -60,7 +60,7 @@ namespace LocalDatabaseLab13.ViewModels
             this.dataServiceArtistas = new ArtistaService();
             this.dataServiceAlbumes = new AlbumService();
 
-            //this.CreateArtistas();
+            this.CreateArtistas();
 
 
             this.LoadAlbumes();
